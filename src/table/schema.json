@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "AngularTableSchematic",
+  "title": "Angular Table Page Component Options Schema",
+  "type": "object",
+  "description": "Creates a new generic component definition in the given or default project.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The path at which to create the component file, relative to the current workspace. Default is a folder with the same name as the component in the project root.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the table page?"
+    },
+    "project": {
+      "type": "string",
+      "description": "Generate in specific Angular CLI workspace project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "flat": {
+      "type":"boolean",
+      "default": false,
+      "description": "When true, creates the new files at the top level of the current project."
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path at which to create the component file, relative to the current workspace. Default is a folder with the same name as the component in the project root.",
+      "visible": false
+    },
+    "module": {
+      "type": "string",
+      "description": "The declaring NgModule."
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

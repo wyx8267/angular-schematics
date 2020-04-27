@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "table": {
+      "description": "A schematic to create usual table page.",
+      "factory": "./table/index#table",
+      "schema": "./table/schema.json"
+    }
+  }
+}

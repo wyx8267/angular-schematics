@@ -1,0 +1,49 @@
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ShowErrorService } from 'src/app/@core/utils/show-error.service';
+
+@Component({
+  selector: 'app-<%= dasherize(name) %>',
+  templateUrl: './<%= dasherize(name) %>.component.html',
+  styleUrls: ['./<%= dasherize(name) %>.component.less']
+})
+export class <%= classify(name) %>Component implements OnInit {
+  searchForm = {
+    index: 1,
+    size: 10
+  };
+  total: number;
+  isLoading: boolean = false;
+  tableData: Array<any> =[];
+  getDataListSubscription: Subscription;
+
+  constructor(private showErrorService: ShowErrorService) { }
+
+  ngOnInit() {
+    this.getTableData();
+  }
+
+  getTableData(isClick?) {
+    isClick && (this.searchForm.index = 1);
+    this.isLoading = true;
+    // 将此处_service_,_method_替换为你所使用的服务及方法名称
+    this.getDataListSubscription = this._service_._method_(this.searchForm).subscribe(
+      res => {
+        this.isLoading = false;
+        this.tableData = res.dataList;
+        this.total = res.total;
+      }, error => {
+        this.isLoading = false;
+        this.showErrorService.showErrorInfo(error);
+      }
+    );
+  }
+  changeTablePageIndex($event) {
+    this.searchForm.index = $event;
+    this.getTableData();
+  }
+  doAction($event) { }
+  ngOnDestroy() {
+    this.getDataListSubscription && this.getDataListSubscription.unsubscribe();
+  }
+}

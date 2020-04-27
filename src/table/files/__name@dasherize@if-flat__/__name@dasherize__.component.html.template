@@ -1,0 +1,17 @@
+<app-i-page-form-items>
+  <ng-container name="selectItems">
+    <div class="push-search-item">
+      <span class="label">用户信息: </span>
+      <input nz-input [nzSize]="'default'" placeholder="姓名/昵称/手机号" [(ngModel)]="searchForm.userInfo">
+    </div>
+  </ng-container>
+  <ng-container name="searchButton">
+    <div class="push-search-item">
+      <button nz-button nzType="primary" (click)="getTableData(true)">查询</button>
+    </div>
+  </ng-container>
+  <app-i-table class="table" name="table" [(data)]="tableData" isSimpleHeader="true" [isLoding]="isLoading"
+    [tableName]="'<%= (classify(name)).toUpperCase() %>_TABLE'" [pageSize]='searchForm.size' [total]="total"
+    (tableAction)="doAction($event)" [pageIndex]="searchForm.index"
+    (changeTablePageIndex)="changeTablePageIndex($event)"></app-i-table>
+</app-i-page-form-items>
