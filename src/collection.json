@@ -5,6 +5,11 @@
       "description": "A schematic to create usual table page.",
       "factory": "./table/index#table",
       "schema": "./table/schema.json"
+    },
+    "ng-add": {
+      "description": "Add schematic.",
+      "factory": "./ng-add/index",
+      "schema": "./table/schema.json"
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Schema } from "./schema";
-import { Rule, Tree, SchematicsException, url, apply, move, mergeWith, applyTemplates, chain, noop } from "@angular-devkit/schematics";
+import { Rule, Tree, SchematicsException, url, apply, move, mergeWith, applyTemplates, chain } from "@angular-devkit/schematics";
 import { strings } from "@angular-devkit/core";
 import { getWorkspace, buildDefaultPath } from "@schematics/angular/utility/workspace";
 import { parseName } from "@schematics/angular/utility/parse-name";

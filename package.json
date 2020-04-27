@@ -1,7 +1,7 @@
 {
-  "name": "@nekoi-schematics/angular",
+  "name": "@nekoi/angular-schematics",
   "version": "0.0.1",
-  "description": "A blank schematics",
+  "description": "A schematic to create table page for icb's angular project",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch",
@@ -10,7 +10,7 @@
   "keywords": [
     "schematics"
   ],
-  "author": "",
+  "author": "wyx8267",
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
