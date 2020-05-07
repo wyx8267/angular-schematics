@@ -1,10 +1,10 @@
 import { Schema } from "./schema";
 import { Rule, Tree, SchematicsException, url, apply, move, mergeWith, applyTemplates, chain } from "@angular-devkit/schematics";
 import { strings } from "@angular-devkit/core";
-import { getWorkspace, buildDefaultPath } from "@schematics/angular/utility/workspace";
+import { getProject, buildDefaultPath } from "@schematics/angular/utility/project";
 import { parseName } from "@schematics/angular/utility/parse-name";
 import { addDeclarationToModule } from "@schematics/angular/utility/ast-utils";
-import * as ts from "@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript";
+import * as ts from "typescript";
 import { buildRelativePath, findModuleFromOptions } from "@schematics/angular/utility/find-module";
 import { InsertChange } from '@schematics/angular/utility/change';
 import { validateName } from '@schematics/angular/utility/validation';
@@ -42,9 +42,8 @@ function addDeclarationToNgModule(_options: Schema): Rule {
 }
 
 export function table(_options: Schema): Rule {
-  return async (host: Tree) => {
-    const workspace = await getWorkspace(host);
-    const project = workspace.projects.get(_options.project as string);
+  return (host: Tree) => {
+    const project = getProject(host, _options.project);
     if (_options.path === undefined && project) {
       _options.path = buildDefaultPath(project);
     }

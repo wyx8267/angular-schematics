@@ -1,6 +1,6 @@
 {
   "name": "@nekoi/angular-schematics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A schematic to create table page for icb's angular project",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -17,7 +17,7 @@
     "@angular-devkit/core": "7.2.4",
     "@angular-devkit/schematics": "7.2.4",
     "@schematics/angular": "7.2.4",
-    "typescript": "~3.8.2"
+    "typescript": "3.2.2"
   },
   "devDependencies": {
     "@types/jasmine": "~3.5.0",
