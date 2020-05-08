@@ -11,7 +11,7 @@
     </div>
   </ng-container>
   <app-i-table class="table" name="table" [(data)]="tableData" isSimpleHeader="true" [isLoding]="isLoading"
-    [tableName]="'<%= (classify(name)).toUpperCase() %>_TABLE'" [pageSize]='searchForm.size' [total]="total"
+    [tableName]="'<%= underscore(name).toUpperCase() %>_TABLE'" [pageSize]='searchForm.size' [total]="total"
     (tableAction)="doAction($event)" [pageIndex]="searchForm.index"
     (changeTablePageIndex)="changeTablePageIndex($event)"></app-i-table>
 </app-i-page-form-items>
